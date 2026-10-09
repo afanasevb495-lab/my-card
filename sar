@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой сайт-визитка</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+        body { background: #f0f2f5; color: #333; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); max-width: 400px; width: 100%; text-align: center; }
+        .avatar { width: 120px; height: 120px; border-radius: 50%; background: #0070f3; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 40px; font-weight: bold; }
+        h1 { font-size: 24px; margin-bottom: 8px; color: #111; }
+        .subtitle { color: #666; font-size: 14px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+        .bio { font-size: 15px; color: #444; line-height: 1.6; margin-bottom: 25px; }
+        form { display: flex; flex-direction: column; gap: 10px; border-top: 1px solid #eee; padding-top: 20px; }
+        form h3 { font-size: 16px; margin-bottom: 5px; text-align: left; color: #222; }
+        input, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; outline: none; transition: 0.2s; }
+        input:focus, textarea:focus { border-color: #0070f3; }
+        button { background: #0070f3; color: white; border: none; padding: 12px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: 0.2s; }
+        button:hover { background: #0051b3; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <!-- Круг вместо фото (можно заменить на <img src="ссылка">) -->
+    <div class="avatar">ИИ</div>
+    
+    <h1>Иван Иванов</h1>
+    <div class="subtitle">Веб-разработчик / Фрилансер</div>
+    <p class="bio">Создаю удобные, быстрые и современные сайты для вашего бизнеса. Открыт к новым проектам и интересным предложениям!</p>
+    
+    <!-- Безопасная форма обратной связи -->
+    <!-- Замените "ВАШ_ИДЕНТИФИКАТОР" на ID, который выдаст Formspree -->
+    <form action="https://formspree.io" method="POST">
+        <h3>Связаться со мной (без спама)</h3>
+        <input type="email" name="email" placeholder="Ваш Email" required>
+        <textarea name="message" rows="3" placeholder="Ваше сообщение..." required></textarea>
+        <button type="submit">Отправить</button>
+    </form>
+</div>
+
+</body>
+</html>
