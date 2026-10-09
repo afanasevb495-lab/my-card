@@ -3,42 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой сайт-визитка</title>
+    <title>Бизнес-Решения — Корпоративный сайт</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
-        body { background: #f0f2f5; color: #333; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
-        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); max-width: 400px; width: 100%; text-align: center; }
-        .avatar { width: 120px; height: 120px; border-radius: 50%; background: #0070f3; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 40px; font-weight: bold; }
-        h1 { font-size: 24px; margin-bottom: 8px; color: #111; }
-        .subtitle { color: #666; font-size: 14px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
-        .bio { font-size: 15px; color: #444; line-height: 1.6; margin-bottom: 25px; }
-        form { display: flex; flex-direction: column; gap: 10px; border-top: 1px solid #eee; padding-top: 20px; }
-        form h3 { font-size: 16px; margin-bottom: 5px; text-align: left; color: #222; }
-        input, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; outline: none; transition: 0.2s; }
-        input:focus, textarea:focus { border-color: #0070f3; }
-        button { background: #0070f3; color: white; border: none; padding: 12px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: 0.2s; }
-        button:hover { background: #0051b3; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
+        body { background: #0b0f19; color: #f3f4f6; line-height: 1.6; }
+        
+        /* Шапка сайта */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: rgba(11, 15, 25, 0.8); backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .logo { font-size: 22px; font-weight: 800; color: #3b82f6; letter-spacing: 1px; }
+        nav a { color: #9ca3af; text-decoration: none; margin-left: 25px; font-size: 14px; font-weight: 500; transition: 0.3s; }
+        nav a:hover { color: #3b82f6; }
+
+        /* Главный баннер (Hero section) */
+        .hero { padding: 160px 8% 80px; text-align: center; max-width: 900px; margin: 0 auto; }
+        .hero h1 { font-size: 46px; font-weight: 800; line-height: 1.2; margin-bottom: 20px; color: #ffffff; }
+        .hero p { font-size: 18px; color: #9ca3af; margin-bottom: 30px; }
+        .btn { display: inline-block; background: #3b82f6; color: white; padding: 14px 28px; border-radius: 8px; font-weight: 600; text-decoration: none; transition: 0.3s; }
+        .btn:hover { background: #2563eb; transform: translateY(-2px); }
+
+        /* Блок с цифрами / Результатами */
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; padding: 40px 8%; background: rgba(255,255,255,0.02); border-radius: 16px; margin: 40px 8%; text-align: center; }
+        .stat-item h2 { font-size: 36px; color: #3b82f6; margin-bottom: 5px; }
+        .stat-item p { color: #9ca3af; font-size: 14px; }
+
+        /* Блок услуг */
+        .services { padding: 60px 8%; text-align: center; }
+        .services h2 { font-size: 32px; margin-bottom: 40px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .card { background: #111827; padding: 35px; border-radius: 12px; text-align: left; border: 1px solid rgba(255,255,255,0.03); transition: 0.3s; }
+        .card:hover { border-color: #3b82f6; transform: translateY(-5px); }
+        .card-icon { font-size: 30px; margin-bottom: 15px; color: #3b82f6; }
+        .card h3 { font-size: 20px; margin-bottom: 12px; color: #fff; }
+        .card p { color: #9ca3af; font-size: 14px; }
+
+        /* Секция с защищенной формой */
+        .contact-section { padding: 80px 8%; background: #111827; display: flex; flex-direction: column; align-items: center; }
+        .contact-container { max-width: 500px; width: 100%; text-align: center; }
+        .contact-container h2 { font-size: 32px; margin-bottom: 15px; }
+        .contact-container p { color: #9ca3af; margin-bottom: 30px; }
+        
+        form { display: flex; flex-direction: column; gap: 15px; }
+        input, textarea { width: 100%; padding: 14px; background: #1f2937; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; font-size: 15px; outline: none; transition: 0.3s; }
+        input:focus, textarea:focus { border-color: #3b82f6; }
+        form button { background: #3b82f6; color: white; border: none; padding: 14px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: 0.3s; }
+        form button:hover { background: #2563eb; }
+
+        /* Подвал */
+        footer { padding: 30px 8%; text-align: center; color: #6b7280; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); }
     </style>
 </head>
 <body>
 
-<div class="card">
-    <!-- Круг вместо фото (можно заменить на <img src="ссылка">) -->
-    <div class="avatar">ИИ</div>
-    
-    <h1>Иван Иванов</h1>
-    <div class="subtitle">Веб-разработчик / Фрилансер</div>
-    <p class="bio">Создаю удобные, быстрые и современные сайты для вашего бизнеса. Открыт к новым проектам и интересным предложениям!</p>
-    
-    <!-- Безопасная форма обратной связи -->
-    <!-- Замените "ВАШ_ИДЕНТИФИКАТОР" на ID, который выдаст Formspree -->
-    <form action="https://formspree.io" method="POST">
-        <h3>Связаться со мной (без спама)</h3>
-        <input type="email" name="email" placeholder="Ваш Email" required>
-        <textarea name="message" rows="3" placeholder="Ваше сообщение..." required></textarea>
-        <button type="submit">Отправить</button>
-    </form>
-</div>
+    <!-- Навигация -->
+    <header>
+        <div class="logo">PROPULSE</div>
+        <nav>
+            <a href="#services">Услуги</a>
+            <a href="#about">О нас</a>
+            <a href="#contact">Контакты</a>
+        </nav>
+    </header>
+
+    <!-- Главный блок -->
+    <section class="hero">
+        <h1>Интеллектуальные решения для вашего бизнеса</h1>
+        <p>Мы помогаем компаниям автоматизировать процессы, внедрять современные ИТ-инструменты и масштабировать результаты на международном рынке.</p>
+        <a href="#contact" class="btn">Обсудить проект</a>
+    </section>
+
+    <!-- Цифры компании -->
+    <section class="stats" id="about">
+        <div class="stat-item">
+            <h2>7+ лет</h2>
+            <p>Успешной работы</p>
+        </div>
+        <div class="stat-item">
+            <h2>150+</h2>
+            <p>Завершенных ИТ-проектов</p>
+        </div>
+        <div class="stat-item">
+            <h2>24/7</h2>
+            <p>Поддержка клиентов</p>
+        </div>
+    </section>
+
+    <!-- Направления деятельности -->
+    <section class="services" id="services">
+        <h2>Направления деятельности</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">⚙️</div>
+                <h3>Аутсорсинг систем</h3>
+                <p>Полная техническая поддержка вашей ИТ-инфраструктуры, серверов и корпоративных облачных хранилищ.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h3>Аналитика данных</h3>
+                <p>Оптимизация сквозных бизнес-процессов, аудит безопасности и построение интерактивных дашбордов.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🚀</div>
+                <h3>Веб-разработка</h3>
+                <p>Проектирование высоконагруженных сервисов, CRM-систем и адаптивных корпоративных экосистем.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Форма обратной связи без спама -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <h2>Оставить заявку</h2>
+            <p>Заполните форму, и наш менеджер свяжется с вами в течение 15 минут для обсуждения деталей.</p>
+            
+            <!-- Замените "ВАШ_ИДЕНТИФИКАТОР" на ID из настроек Formspree -->
+            <form action="https://formspree.io" method="POST">
+                <input type="text" name="company" placeholder="Название компании" required>
+                <input type="email" name="email" placeholder="Корпоративный Email" required>
+                <textarea name="message" rows="4" placeholder="Краткое описание вашей задачи..." required></textarea>
+                <button type="submit">Связаться с экспертом</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <p>&copy; 2026 PROPULSE. Все права защищены. Безопасная ИТ-инфраструктура.</p>
+    </footer>
 
 </body>
 </html>
